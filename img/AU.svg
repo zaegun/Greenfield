@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 2550 4000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,732.888,2287.85)">
+        <g transform="matrix(1,0,0,0.651328,-435.056,458.371)">
+            <path d="M1359.53,714.689L1359.53,1432.89C1359.53,1482.43 1333.33,1522.66 1301.06,1522.66L653.284,1522.66C621.012,1522.66 594.811,1482.43 594.811,1432.89L594.811,714.689C594.811,665.141 621.012,624.914 653.284,624.914L1301.06,624.914C1333.33,624.914 1359.53,665.141 1359.53,714.689Z" style="fill:rgb(136,61,125);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-2605.67,136.471)">
+            <g>
+                <g transform="matrix(1,0,0,1,2827.43,979.939)">
+                    <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:116.667px;fill:white;">SolarW</text>
+                </g>
+                <g transform="matrix(1,0,0,1,3228.3,979.939)">
+                    <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:116.667px;fill:white;">inds</text>
+                </g>
+            </g>
+            <g transform="matrix(1,0,0,1,3021.37,1146.61)">
+                <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:116.667px;fill:white;">SEM</text>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,732.888,1422.43)">
+        <g transform="matrix(1,0,0,0.651328,-435.056,458.371)">
+            <path d="M1359.53,714.689L1359.53,1432.89C1359.53,1482.43 1333.33,1522.66 1301.06,1522.66L653.284,1522.66C621.012,1522.66 594.811,1482.43 594.811,1432.89L594.811,714.689C594.811,665.141 621.012,624.914 653.284,624.914L1301.06,624.914C1333.33,624.914 1359.53,665.141 1359.53,714.689Z" style="fill:rgb(136,61,125);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,321.68,1199.74)">
+            <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:116.667px;fill:white;">Graylog</text>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,125.528,265.34)">
+        <g transform="matrix(1,0,0,0.651328,-435.056,458.371)">
+            <path d="M1359.53,714.689L1359.53,1432.89C1359.53,1482.43 1333.33,1522.66 1301.06,1522.66L653.284,1522.66C621.012,1522.66 594.811,1482.43 594.811,1432.89L594.811,714.689C594.811,665.141 621.012,624.914 653.284,624.914L1301.06,624.914C1333.33,624.914 1359.53,665.141 1359.53,714.689Z" style="fill:rgb(185,46,91);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-2605.67,136.471)">
+            <g transform="matrix(1,0,0,1,2920.86,979.939)">
+                <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:116.667px;fill:white;">Rsyslog</text>
+            </g>
+            <g transform="matrix(1,0,0,1,2894.97,1146.61)">
+                <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:116.667px;fill:white;">Collector</text>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,125.528,-603.363)">
+        <g transform="matrix(1,0,0,0.651328,-435.056,458.371)">
+            <path d="M1359.53,714.689L1359.53,1432.89C1359.53,1482.43 1333.33,1522.66 1301.06,1522.66L653.284,1522.66C621.012,1522.66 594.811,1482.43 594.811,1432.89L594.811,714.689C594.811,665.141 621.012,624.914 653.284,624.914L1301.06,624.914C1333.33,624.914 1359.53,665.141 1359.53,714.689Z" style="fill:rgb(185,46,91);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-2605.67,136.471)">
+            <g transform="matrix(1,0,0,1,2933.9,979.939)">
+                <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:116.667px;fill:white;">Linux &amp;</text>
+            </g>
+            <g transform="matrix(1,0,0,1,3001.95,1146.61)">
+                <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:116.667px;fill:white;">Apps</text>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,0.708286,1340.24,631.292)">
+        <g transform="matrix(1,0,0,0.919356,-435.056,130.625)">
+            <path d="M1359.53,714.689L1359.53,1432.89C1359.53,1482.43 1333.34,1522.66 1301.07,1522.66L653.27,1522.66C621.006,1522.66 594.811,1482.43 594.811,1432.89L594.811,714.689C594.811,665.141 621.006,624.914 653.27,624.914L1301.07,624.914C1333.34,624.914 1359.53,665.141 1359.53,714.689Z" style="fill:rgb(0,123,165);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,0,133.374)">
+            <g transform="matrix(0.787148,0,0,0.147501,-227.064,1032.55)">
+                <path d="M1359.53,804.464L1359.53,1343.11C1359.53,1442.21 1348.85,1522.66 1335.7,1522.66L618.642,1522.66C605.489,1522.66 594.811,1442.21 594.811,1343.11L594.811,804.464C594.811,705.368 605.489,624.914 618.642,624.914L1335.7,624.914C1348.85,624.914 1359.53,705.368 1359.53,804.464Z" style="fill:white;"/>
+            </g>
+            <g transform="matrix(1,0,0,1.41186,318.056,1222.58)">
+                <text x="0px" y="0px" style="font-family:'Helvetica';font-size:62.5px;fill:rgb(0,123,165);">Graylog Sidecar</text>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1.41186,406.02,1044.3)">
+            <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:116.667px;fill:white;">WEC</text>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,0.708286,1340.24,-237.266)">
+        <g transform="matrix(1,0,0,0.919356,-435.056,130.625)">
+            <path d="M1359.53,714.689L1359.53,1432.89C1359.53,1482.43 1333.34,1522.66 1301.07,1522.66L653.27,1522.66C621.006,1522.66 594.811,1482.43 594.811,1432.89L594.811,714.689C594.811,665.141 621.006,624.914 653.27,624.914L1301.07,624.914C1333.34,624.914 1359.53,665.141 1359.53,714.689Z" style="fill:rgb(0,123,165);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,0,133.374)">
+            <g transform="matrix(0.787148,0,0,0.147501,-227.064,1032.55)">
+                <path d="M1359.53,804.464L1359.53,1343.11C1359.53,1442.21 1348.85,1522.66 1335.7,1522.66L618.642,1522.66C605.489,1522.66 594.811,1442.21 594.811,1343.11L594.811,804.464C594.811,705.368 605.489,624.914 618.642,624.914L1335.7,624.914C1348.85,624.914 1359.53,705.368 1359.53,804.464Z" style="fill:white;"/>
+            </g>
+            <g transform="matrix(1,0,0,1.41186,321.596,1222.58)">
+                <text x="0px" y="0px" style="font-family:'Helvetica';font-size:62.5px;fill:rgb(0,123,165);">Sysmon &amp; WEF</text>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1.41186,-2605.67,-317.189)">
+            <g>
+                <g transform="matrix(1,0,0,1,2892.32,964.323)">
+                    <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:116.667px;fill:white;">W</text>
+                </g>
+                <g transform="matrix(1,0,0,1,3001.41,964.323)">
+                    <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:116.667px;fill:white;">indows</text>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(-2.35324e-16,0.787007,-0.514881,-3.09185e-16,1604.44,-332.831)">
+        <path d="M1498.81,1825.13L1498.81,1785.18L1809.66,1785.18L1809.66,1729.07L1859.44,1805.16L1809.66,1881.25L1809.66,1825.13L1498.81,1825.13Z" style="fill:rgb(53,69,82);"/>
+    </g>
+    <g transform="matrix(-2.35324e-16,0.787007,-0.514881,-3.09185e-16,2811.8,-332.814)">
+        <path d="M1498.81,1825.13L1498.81,1785.18L1809.66,1785.18L1809.66,1729.07L1859.44,1805.16L1809.66,1881.25L1809.66,1825.13L1498.81,1825.13Z" style="fill:rgb(53,69,82);"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0.0035,-288.665)">
+        <g transform="matrix(-2.35324e-16,0.787007,-0.514881,-3.09185e-16,2204.44,1112.78)">
+            <path d="M1498.81,1825.13L1498.81,1785.18L1809.66,1785.18L1809.66,1729.07L1859.44,1805.16L1809.66,1881.25L1809.66,1825.13L1498.81,1825.13Z" style="fill:rgb(53,69,82);"/>
+        </g>
+        <g transform="matrix(-2.39415e-16,0.797692,-0.514881,-3.10707e-16,1607.37,809.087)">
+            <rect x="1498.81" y="1785.18" width="360.632" height="39.948" style="fill:rgb(53,69,82);"/>
+        </g>
+        <g transform="matrix(-2.39415e-16,0.797692,-0.514881,-3.10707e-16,2811.8,809.087)">
+            <rect x="1498.81" y="1785.18" width="360.632" height="39.948" style="fill:rgb(53,69,82);"/>
+        </g>
+        <g transform="matrix(3.39683,2.8826e-16,-1.45734e-15,0.514881,-4423.57,1352.62)">
+            <rect x="1498.81" y="1785.18" width="360.632" height="39.948" style="fill:rgb(53,69,82);"/>
+        </g>
+    </g>
+    <g transform="matrix(-2.35324e-16,0.787007,-0.514881,-3.09185e-16,2204.44,1689.86)">
+        <path d="M1498.81,1825.13L1498.81,1785.18L1809.66,1785.18L1809.66,1729.07L1859.44,1805.16L1809.66,1881.25L1809.66,1825.13L1498.81,1825.13Z" style="fill:rgb(53,69,82);"/>
+    </g>
+    <g transform="matrix(1,0,0,0.708286,1340.24,137.939)">
+        <g transform="matrix(0.787148,0,0,0.147501,-227.064,1032.55)">
+            <path d="M1359.53,804.464L1359.53,1343.11C1359.53,1442.21 1348.85,1522.66 1335.7,1522.66L618.642,1522.66C605.489,1522.66 594.811,1442.21 594.811,1343.11L594.811,804.464C594.811,705.368 605.489,624.914 618.642,624.914L1335.7,624.914C1348.85,624.914 1359.53,705.368 1359.53,804.464Z" style="fill:rgb(53,69,82);"/>
+        </g>
+        <g transform="matrix(1,0,0,1.41186,411.852,1222.58)">
+            <text x="0px" y="0px" style="font-family:'Helvetica';font-size:62.5px;fill:white;">Winevent</text>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,0.708286,125.528,137.939)">
+        <g transform="matrix(0.787148,0,0,0.147501,-227.064,1032.55)">
+            <path d="M1359.53,804.464L1359.53,1343.11C1359.53,1442.21 1348.85,1522.66 1335.7,1522.66L618.642,1522.66C605.489,1522.66 594.811,1442.21 594.811,1343.11L594.811,804.464C594.811,705.368 605.489,624.914 618.642,624.914L1335.7,624.914C1348.85,624.914 1359.53,705.368 1359.53,804.464Z" style="fill:rgb(53,69,82);"/>
+        </g>
+        <g transform="matrix(1,0,0,1.41186,448.32,1222.58)">
+            <text x="0px" y="0px" style="font-family:'Helvetica';font-size:62.5px;fill:white;">Syslog</text>
+        </g>
+    </g>
+</svg>

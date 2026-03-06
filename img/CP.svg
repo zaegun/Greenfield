@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 3300 1750" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,0.0005,-400.001)">
+        <g>
+            <g transform="matrix(1,0,0,0.919356,-435.056,130.625)">
+                <path d="M1359.53,708.094L1359.53,1439.48C1359.53,1485.39 1325.27,1522.66 1283.06,1522.66L671.283,1522.66C629.077,1522.66 594.811,1485.39 594.811,1439.48L594.811,708.094C594.811,662.186 629.077,624.914 671.283,624.914L1283.06,624.914C1325.27,624.914 1359.53,662.186 1359.53,708.094Z" style="fill:rgb(0,123,165);"/>
+            </g>
+            <g transform="matrix(1.11254,0,0,1.11254,-467.357,-125.311)">
+                <g transform="matrix(1,0,0,1,663.007,918.795)">
+                    <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:112.355px;fill:white;">Proxmox</text>
+                </g>
+                <g transform="matrix(1,0,0,1,709.859,1031.15)">
+                    <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:112.355px;fill:white;">Cluster</text>
+                </g>
+            </g>
+        </g>
+        <g>
+            <g transform="matrix(0.787148,0,0,0.147501,-227.064,1232.44)">
+                <path d="M1359.53,804.464L1359.53,1343.11C1359.53,1442.21 1344.46,1522.66 1325.89,1522.66L628.457,1522.66C609.887,1522.66 594.811,1442.21 594.811,1343.11L594.811,804.464C594.811,705.368 609.887,624.914 628.457,624.914L1325.89,624.914C1344.46,624.914 1359.53,705.368 1359.53,804.464Z" style="fill:white;"/>
+            </g>
+            <g transform="matrix(1,0,0,1,382.326,1413.23)">
+                <text x="0px" y="0px" style="font-family:'Helvetica';font-size:62.5px;fill:rgb(0,123,165);">Backup VM</text>
+            </g>
+        </g>
+        <g>
+            <g transform="matrix(0.787148,0,0,0.147501,-227.064,1032.55)">
+                <path d="M1359.53,804.464L1359.53,1343.11C1359.53,1442.21 1344.46,1522.66 1325.89,1522.66L628.457,1522.66C609.887,1522.66 594.811,1442.21 594.811,1343.11L594.811,804.464C594.811,705.368 609.887,624.914 628.457,624.914L1325.89,624.914C1344.46,624.914 1359.53,705.368 1359.53,804.464Z" style="fill:white;"/>
+            </g>
+            <g transform="matrix(1,0,0,1,-382.483,49.6113)">
+                <g>
+                    <g transform="matrix(1,0,0,1,694.145,1163.74)">
+                        <text x="0px" y="0px" style="font-family:'Helvetica';font-size:62.5px;fill:rgb(0,123,165);">V</text>
+                    </g>
+                    <g transform="matrix(1,0,0,1,734.734,1163.74)">
+                        <text x="0px" y="0px" style="font-family:'Helvetica';font-size:62.5px;fill:rgb(0,123,165);">irtual Machines</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,1107.76,-560.285)">
+        <g transform="matrix(1,0,0,0.651328,-435.056,458.371)">
+            <path d="M1359.53,714.689L1359.53,1432.89C1359.53,1482.43 1333.33,1522.66 1301.06,1522.66L653.284,1522.66C621.012,1522.66 594.811,1482.43 594.811,1432.89L594.811,714.689C594.811,665.141 621.012,624.914 653.284,624.914L1301.06,624.914C1333.33,624.914 1359.53,665.141 1359.53,714.689Z" style="fill:rgb(185,46,91);"/>
+        </g>
+        <g transform="matrix(1.11254,0,0,1.11254,-466.869,54.3856)">
+            <g transform="matrix(1,0,0,1,663.007,918.795)">
+                <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:112.355px;fill:white;">Proxmox</text>
+            </g>
+            <g transform="matrix(1,0,0,1,700.477,1031.15)">
+                <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:112.355px;fill:white;">Backup</text>
+            </g>
+            <g transform="matrix(1,0,0,1,728.484,1143.51)">
+                <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:112.355px;fill:white;">Server</text>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,2215.77,-560.285)">
+        <g transform="matrix(1,0,0,0.651328,-435.056,458.371)">
+            <path d="M1359.53,714.689L1359.53,1432.89C1359.53,1482.43 1333.33,1522.66 1301.06,1522.66L653.284,1522.66C621.012,1522.66 594.811,1482.43 594.811,1432.89L594.811,714.689C594.811,665.141 621.012,624.914 653.284,624.914L1301.06,624.914C1333.33,624.914 1359.53,665.141 1359.53,714.689Z" style="fill:rgb(0,161,123);"/>
+        </g>
+        <g transform="matrix(1.11254,0,0,1.11254,-452.775,-18.6734)">
+            <g transform="matrix(1,0,0,1,725.494,1031.15)">
+                <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:112.355px;fill:white;">Offsite</text>
+            </g>
+            <g transform="matrix(1,0,0,1,669.234,1143.51)">
+                <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:112.355px;fill:white;">Backups</text>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,0.488781,-347.304)">
+        <g transform="matrix(0.787148,0,0,0.147501,-227.064,1567.6)">
+            <path d="M1359.53,804.464L1359.53,1343.11C1359.53,1442.21 1344.46,1522.66 1325.89,1522.66L628.457,1522.66C609.887,1522.66 594.811,1442.21 594.811,1343.11L594.811,804.464C594.811,705.368 609.887,624.914 628.457,624.914L1325.89,624.914C1344.46,624.914 1359.53,705.368 1359.53,804.464Z" style="fill:rgb(0,123,165);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,308.915,1748.39)">
+            <text x="0px" y="0px" style="font-family:'Helvetica';font-size:62.5px;fill:white;">Physical Servers</text>
+        </g>
+    </g>
+    <g transform="matrix(1.24735e-17,-0.203708,0.514881,3.15274e-17,-387.326,1435.81)">
+        <path d="M1498.81,1825.13L1498.81,1785.18L1667.12,1785.18L1667.12,1729.07L1859.44,1805.16L1667.12,1881.25L1667.12,1825.13L1498.81,1825.13Z" style="fill:white;"/>
+    </g>
+    <g transform="matrix(3.08646e-17,-0.504058,0.514881,3.15274e-17,-387.326,2067.76)">
+        <rect x="1498.81" y="1785.18" width="360.632" height="39.948" style="fill:rgb(53,69,82);"/>
+    </g>
+    <g transform="matrix(0.951221,1.23459e-16,-2.37985e-16,0.514881,-501.224,-331.968)">
+        <path d="M1540,1825.13L1540,1881.25L1498.81,1805.16L1540,1729.07L1540,1785.18L1818.26,1785.18L1818.26,1729.07L1859.44,1805.16L1818.26,1881.25L1818.26,1825.13L1540,1825.13Z" style="fill:rgb(53,69,82);"/>
+    </g>
+    <g transform="matrix(0.951221,1.23459e-16,-2.37985e-16,0.514881,606.783,-331.968)">
+        <path d="M1540,1825.13L1540,1881.25L1498.81,1805.16L1540,1729.07L1540,1785.18L1818.26,1785.18L1818.26,1729.07L1859.44,1805.16L1818.26,1881.25L1818.26,1825.13L1540,1825.13Z" style="fill:rgb(53,69,82);"/>
+    </g>
+</svg>

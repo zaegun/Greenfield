@@ -1,45 +1,53 @@
-# Access Controls (AC)
-## Constraints 
-Microsft Active Directory is to be the primary identity management system (idm).
+# Logging Architecture – NIST AU Controls
 
-## System Evaluation List
+-----
 
-| Technology                 | Classification  |
-|----------------------------|-----------------|
-| Windows Event Collector    | WEC             |
-| Graylog Sidecar            | Forwarder       |
-| Graylog                    | Syslog          |
-| SolarWinds SEM             | SIEM            |
-| SolarWinds NPM             | Monitoring      |
-| PTP/NTP                    | NTP             |
+## Technologies
 
-## Software
-### Windows Event Collector
-Use WEF to send winevents to WEC server via WinRM. Graylog Sidecar used to send forwarded events to Graylog.
+|Technology                        |Role                        |
+|----------------------------------|----------------------------|
+|**Rsyslog**                       |Syslog Forwarder            |
+|**Windows Event Forwarding (WEF)**|WinEvent Collector Transport|
+|**Sysmon (Enhanced)**             |WinEvent Enrichment         |
+|**Windows Event Collector (WEC)** |WinEvent Aggregator         |
+|**Graylog Sidecar**               |Agent / Collector           |
+|**Graylog**                       |Log Indexer / SIEM          |
+|**SolarWinds SEM**                |Alert Analyzer              |
 
-### Graylog
-Log Indexer used for filtering logs before sending it to the SIEM.
+-----
 
-### SolarWinds SEM
-SIEM used to generate alerts based on log data.
+## Analysis
 
-### SolarWinds NPM
-Monitor log systems to ensure log chain is intact.
+**Rsyslog** - Acts as the first leg of the syslog pipeline. Collects sylogs and then forwards them directly to Graylog over a structured transport (UDP/TCP syslog).
 
-### PTP/NTP
-Ensures accurate time stamps on logs.
+**Sysmon (Enhanced)** - Augments native Windows event logging by generating detailed telemetry on process creation, network connections, and file changes.
 
-## Setup
-* Syslogs are sent directly to Graylog server.
-    * https://woshub.com/graylog-centralized-log-collection-analysis/
-* WEF is used to send winevents to a Windows Event Controller. 
-* Graylog Collector Side car is used to forward the winevents to Graylog server.
-* Graylog stores and filters logs that it then sends to SolarWinds SEM for alert analysis.
-* SolarWinds SEM analyses the logs and generate alerts where applicable.
+**Windows Event Forwarding (WEF)** - Leverages the native Windows subscription mechanism to push those enriched Sysmon events and standard Windows security events from endpoints to a central collection point without requiring a third-party agent on every machine.
 
-## Controls
-AU-1 - Document
-AU-2 - WEF and Graylog
-AU-3 - Graylog
+**Windows Event Collector (WEC)** - The receiving server in the WEF pipeline. It collects all subscribed WinEvent data from across the environment into a single point.
 
+**Graylog Sidecar** - Deployed on or alongside the WEC server and acts as the bridge between the Windows collector and Graylog. It ships the collected WinEvents into Graylog.
+
+**Graylog** - Serves as the central indexer and correlation engine for both pipelines. All syslog data (via Rsyslog) and all WinEvent data (via Sidecar from WEC) land here. Graylog normalizes, stores, and correlates logs across both sources. Designated servers are forwarded to the SEM.
+
+**SolarWinds SEM** - Sits downstream of Graylog and receives only critical, high-priority alerts forwarded by Graylog. SEM provides dedicated security event analysis, alerting, and compliance reporting for escalated events.
+
+-----
+
+## NIST AU Controls
+
+|NIST Control                                         |Fulfilling Technologies                   |
+|-----------------------------------------------------|------------------------------------------|
+|**AU-1** – Audit & Accountability Policy             |Document                                  |
+|**AU-2** – Event Logging                             |Sysmon, WEF, Rsyslog, Graylog             |
+|**AU-3** – Content of Audit Records                  |Sysmon, Rsyslog, Graylog                  |
+|**AU-4** – Audit Log Storage Capacity                |Graylog                                   |
+|**AU-5** – Response to Audit Logging Process Failures|Graylog, SolarWinds SEM                   |
+|**AU-6** – Audit Record Review, Analysis & Reporting |Graylog, SolarWinds SEM                   |
+|**AU-7** – Audit Record Reduction & Report Generation|Graylog, SolarWinds SEM                   |
+|**AU-8** – Time Stamps                               |Sysmon, Rsyslog, WEF, Graylog             |
+|**AU-9** – Protection of Audit Information           |Graylog                                   |
+|**AU-10** – Non-repudiation                          |                                          |
+|**AU-11** – Audit Record Retention                   |Graylog                                   |
+|**AU-12** – Audit Record Generation                  |Sysmon, Rsyslog, WEF, WEC, Graylog Sidecar|
 

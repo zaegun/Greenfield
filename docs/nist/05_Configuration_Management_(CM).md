@@ -1,101 +1,65 @@
-# Access Control Architecture – NIST AC Controls
+# Configuration Management Architecture – NIST CM Controls
 
 -----
 
 ## Technologies
 
-|Technology                     |Role                          |
-|-------------------------------|------------------------------|
-|**Active Directory (AD)**      |Primary IDM / Directory       |
-|**ADSys**                      |Linux GPO Enforcement         |
-|**SSSD**                       |Linux AD Integration / PAM    |
-|**ADFS**                       |Internal SSO / Claims Provider|
-|**Microsoft ADCS (Root CA)**   |PKI Root of Trust             |
-|**Microsoft ADCS (Issuing CA)**|Windows Certificate Issuance  |
-|**Dogtag CA**                  |Linux Certificate Issuance    |
-|**YubiKey / FIDO2**            |MFA / Hardware Token          |
-|**MidPoint**                   |Identity Governance (IGA)     |
-|**SailPoint**                  |IGA (Notable Alternative)     |
-|**PacketFence**                |Network Access Control        |
-|**Cisco ISE**                  |NAC (Notable Alternative)     |
-|**HashiCorp Vault**            |Secrets Management / PAM      |
-|**HashiCorp Boundary**         |Privileged Session Brokering  |
-|**Netwrix Privilege Secure**   |PAM (Notable Alternative)     |
-|**CyberArk**                   |PAM (Notable Alternative)     |
-|**Pleasant Password Server**   |Enterprise Password Manager   |
+|Technology                        |Role                               |
+|----------------------------------|-----------------------------------|
+|**Active Directory GPO**          |Windows Policy Enforcement         |
+|**ADSys**                         |Linux Policy Enforcement           |
+|**AWX**                           |Change Orchestration               |
+|**Gitea**                         |Code / Playbook / Config Repository|
+|**WSUS**                          |Windows Update Approval & Cache    |
+|**APT Repository (TBD)**          |Linux Update Approval & Cache      |
+|**Ubuntu USG**.                   |Linux STIG Compliance Scanning     |
+|**SolarWinds Observability (FIM)**|Drift / File Integrity Monitoring  |
+|**SolarWinds SEM**                |FIM Alerting & Correlation         |
+|**GLPI ITSM**                     |Change Ticketing / ITAM            |
+|**SolarWinds IPAM**               |IP Address Management              |
 
 -----
 
 ## Analysis
 
-### Controller
-**Active Directory** - The authoritative identity store for the environment. All user accounts, computer objects, and security groups are managed here. RBAC is enforced exclusively through security group membership, making AD the enforcement backbone for access control across both Windows and Linux systems.
+**Active Directory GPO** - Enforces baseline configuration on all Windows systems. Security settings, software restrictions, Windows Update behavior — including GPO-enforced blocking of autonomous patching — and STIG-based hardening controls are all applied and maintained through Group Policy. GPO is the primary mechanism ensuring Windows systems do not drift from their approved baseline between change windows.
 
-**ADSys** - Extends AD Group Policy to Ubuntu systems joined to the domain. It allows Linux machines to receive and apply GPO-based configuration and policy without requiring a separate Linux directory infrastructure, keeping policy management centralized in AD.
+**ADSys** - Extends GPO-based policy enforcement to Ubuntu systems joined to the domain, ensuring Linux hosts receive and apply the same centrally managed configuration controls without requiring a separate Linux policy infrastructure.
 
-**SSSD** - Handles the low-level AD integration on Ubuntu systems — providing Kerberos authentication, group membership resolution, and sudo rule enforcement sourced from AD. It works alongside ADSys, with ADSys managing policy application and SSSD handling identity and PAM-level authentication.
+**AWX** - The orchestration layer for all configuration change operations across both Windows and Linux systems. All patching, configuration deployments, and automation jobs are initiated through AWX, providing a controlled and auditable change pipeline. AWX integrates with GLPI to tie job execution to approved change tickets, and pulls all playbooks and scripts from Gitea.
 
-**ADFS** - Provides internal SSO for applications and services that support claims-based authentication. As the environment is airgapped, ADFS operates entirely on-premises with no cloud dependency, issuing tokens based on AD identity and group membership for federated access within the network.
+**Gitea** - Serves as the central version control repository for all playbooks, scripts, configuration templates, baseline definitions, and supporting documents. Every change to automation or configuration is committed through Gitea, providing a full audit trail of what was changed, by whom, and when.
 
-### PKI
-**Microsoft ADCS (Root CA)** - The trust anchor for the entire PKI infrastructure. The Root CA is kept offline except for issuing subordinate CA certificates, with private keys protected by HSM as noted in the CP architecture. It issues to both the Windows and Linux issuing CAs, maintaining a single root of trust across platforms.
+**WSUS** - Serves as the approved and cached source for Windows updates within the airgapped network. It enforces an approval workflow ensuring only tested and authorized patches are made available for deployment by AWX.
 
-**Microsoft ADCS (Issuing CA)** - The online subordinate CA responsible for issuing certificates to Windows systems, users, and services. It integrates natively with AD for auto-enrollment, supporting machine certificates, user smart card certificates, and service authentication certificates.
+**APT Repository (TBD)** - All Ubuntu systems pull patches from this internal repository rather than reaching external sources directly, maintaining the airgap while ensuring timely flaw remediation.
 
-**Dogtag CA** - A standalone Linux-based issuing CA, subordinate to the same Microsoft Root CA, dedicated to issuing certificates for Linux systems and services. Running Dogtag without FreeIPA keeps the footprint minimal and avoids introducing a competing directory infrastructure for Ubuntu domain members.
+**Ubuntu USG** - Performs STIG compliance scanning on Ubuntu systems, validating configuration against the approved security baseline. 
 
-**YubiKey / FIDO2** - Hardware tokens provide MFA for the airgapped environment without any cloud dependency. They support FIDO2/WebAuthn for modern authentication flows as well as PIV/smart card mode for certificate-based authentication against AD and ADFS, making them versatile across both Windows and Linux contexts.
+**SolarWinds Observability (FIM)** - Provides continuous file integrity and configuration drift monitoring across both Windows and Linux systems. It detects unauthorized or unexpected changes to critical system files, configurations, and registry keys, alerting on deviations from the approved baseline between scheduled SCAP/GPO compliance cycles.
 
-### IGP
-**MidPoint** - The selected Identity Governance and Administration (IGA) platform, responsible for identity lifecycle management — provisioning, deprovisioning, role management, and access certification. It connects to AD as its authoritative target, ensuring group memberships and RBAC assignments are governed through a controlled workflow rather than ad hoc changes.
+**SolarWinds SEM** - Receives FIM events and alerts from SolarWinds Observability, correlating file change activity with other security events to distinguish authorized changes from potential unauthorized modifications or indicators of compromise.
 
-**SailPoint (Alternate)** - A mature enterprise alternative to MidPoint for IGA, offering similar lifecycle and governance capabilities with broader vendor support.
+**GLPI ITSM** - The change management and IT asset management platform. All configuration changes must have an associated GLPI change ticket before AWX job execution, enforcing a documented approval workflow for every change. GLPI also maintains the ITAM inventory, providing an authoritative record of all hardware and software assets in the environment.
 
-### NAC
-**PacketFence** - Provides Network Access Control, enforcing that only authorized and compliant devices can connect to the network. It integrates with AD for identity-aware policy decisions and can enforce VLAN segmentation based on device posture and group membership.
-
-**Cisco ISE (Alternate)** - An enterprise alternative to PacketFence, offering deeper integration with Cisco switching and wireless infrastructure and broader posture assessment capabilities.
-
-
-### PAM
-**HashiCorp Vault** - Manages secrets and privileged credentials across the environment. It provides dynamic secrets, credential rotation, and PKI engine capabilities, ensuring privileged account credentials are never static or directly accessible to end users. It serves as the PAM secrets backend for the environment.
-
-**HashiCorp Boundary** - Provides privileged session brokering, controlling and auditing access to sensitive targets such as servers, databases, and infrastructure components. Users access targets through Boundary without ever receiving direct credentials, with sessions logged for audit purposes.
-
-**Netwrix Privilege Secure (Alternate)** - A PAM platform combining privileged account discovery, session recording, and just-in-time access capabilities.
-
-**CyberArk (Alternate)** - An enterprise-grade PAM, offering the most comprehensive privileged access management feature set including full session recording, threat analytics, and broad platform coverage.
-
-
-### Password Management
-**Pleasant Password Server** - Provides enterprise password management for team-shared credentials and service account passwords that fall outside the Vault/Boundary PAM scope. It integrates with AD for authentication and supports RBAC-based access to credential folders.
+**SolarWinds IPAM** - Manages IP address allocation and DNS/DHCP records across the network, ensuring IP assignments are tracked, authorized, and consistent with the overall configuration baseline.
 
 -----
 
-## NIST AC Controls
+## NIST CM Controls
 
-|NIST Control                                        |Fulfilling Technologies                                        |
-|----------------------------------------------------|---------------------------------------------------------------|
-|**AC-1** – Access Control Policy                    |Document                                                       |
-|**AC-2** – Account Management                       |Active Directory, MidPoint                                     |
-|**AC-3** – Access Enforcement                       |Active Directory, SSSD, PacketFence                            |
-|**AC-4** – Information Flow Enforcement             |PacketFence                                                    |
-|**AC-5** – Separation of Duties                     |Active Directory, MidPoint                                     |
-|**AC-6** – Least Privilege                          |Active Directory, HashiCorp Vault, HashiCorp Boundary, MidPoint|
-|**AC-7** – Unsuccessful Logon Attempts              |Active Directory, ADFS                                         |
-|**AC-8** – System Use Notification                  |Active Directory (GPO), ADSys                                  |
-|**AC-9** – Previous Logon Notification              |Active Directory                                               |
-|**AC-11** – Device Lock                             |Active Directory (GPO), ADSys                                  |
-|**AC-12** – Session Termination                     |ADFS, HashiCorp Boundary                                       |
-|**AC-14** – Permitted Actions Without Identification|Document                                                       |
-|**AC-17** – Remote Access                           |HashiCorp Boundary                                             |
-|**AC-18** – Wireless Access                         |PacketFence                                                    |
-|**AC-19** – Access Control for Mobile Devices       |PacketFence                                                    |
-|**AC-20** – Use of External Systems                 |Document                                                       |
-|**AC-21** – Information Sharing                     |Document                                                       |
-|**AC-22** – Publicly Accessible Content             |Document                                                       |
-|**AC-24** – Access Control Decisions                |Active Directory, MidPoint, ADFS                               |
-
-
-
-
+|NIST Control                              |Fulfilling Technologies                                            |
+|------------------------------------------|-------------------------------------------------------------------|
+|**CM-1** – Configuration Management Policy|Document                                                           |
+|**CM-2** – Baseline Configuration         |Active Directory GPO, ADSys, AWX, Gitea, Ubuntu USG                |
+|**CM-3** – Configuration Change Control   |AWX, GLPI ITSM, Gitea, WSUS                                        |
+|**CM-4** – Impact Analyses                |GLPI ITSM                                                          |
+|**CM-5** – Access Restrictions for Change |Active Directory GPO, AWX, Gitea                                   |
+|**CM-6** – Configuration Settings         |Active Directory GPO, ADSys, Ubuntu USG                            |
+|**CM-7** – Least Functionality            |Active Directory GPO, ADSys, AWX                                   |
+|**CM-8** – System Component Inventory     |GLPI ITSM, SolarWinds IPAM                                         |
+|**CM-9** – Configuration Management Plan  |Document                                                           |
+|**CM-10** – Software Usage Restrictions   |GLPI ITSM, Active Directory GPO                                    |
+|**CM-11** – User-Installed Software       |Active Directory GPO, ADSys                                        |
+|**CM-12** – Information Location          |GLPI ITSM, SolarWinds IPAM                                         |
+|**CM-14** – Signed Components             |WSUS, APT Repository (TBD)                                         |

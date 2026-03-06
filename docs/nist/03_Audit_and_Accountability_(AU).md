@@ -34,6 +34,11 @@
 
 -----
 
+## Concept
+![Diagram](../../img/AU.svg)
+
+-----
+
 ## NIST AU Controls
 
 |NIST Control                                         |Fulfilling Technologies                   |

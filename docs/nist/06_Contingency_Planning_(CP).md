@@ -45,6 +45,11 @@
 
 -----
 
+## Concept
+![Diagram](../../img/CP.svg)
+
+-----
+
 ## NIST CP Controls
 
 |NIST Control                                |Fulfilling Technologies                                                                 |
